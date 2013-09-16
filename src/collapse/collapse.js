@@ -22,17 +22,18 @@ angular.module('ui.bootstrap.collapse',['ui.bootstrap.transition'])
                     // 1. Parent is set to display none
                     // 2. angular bindings inside are resolved
                     //When we have a change of scrollHeight we are setting again the correct height if the group is opened
+                    var x = null;
                     if (element[0].scrollHeight !== 0) {
                         if (!isCollapsed) {
                             if (initialAnimSkip) {
                                 element.css({height: 'auto'});
                                 element.removeClass('collapse in collapsing');
-                                var x = element[0].offsetWidth;
+                                x = element[0].offsetWidth;
                                 element.addClass('collapse in');
                             } else {
                                 element.css({height: element[0].scrollHeight + 'px'});
                                 element.removeClass('collapse in collapsing');
-                                var x = element[0].offsetWidth;
+                                x = element[0].offsetWidth;
                                 element.addClass('collapse in');
                             }
                         }
